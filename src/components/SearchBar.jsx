@@ -15,7 +15,7 @@ export default function SearchBar(props) {
       setId("");
    }
 
-//! /////////////////////////////////////////   
+//! //////////////////////////////////////////   
    return (
       <div style={{margin:10,opacity:1}}>
           <input type='text' placeholder= 'Id...' style={{textAlign:'left',paddingRight:80}} onChange={handleChange} value={id} />

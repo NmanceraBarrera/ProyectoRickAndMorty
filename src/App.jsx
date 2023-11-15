@@ -1,4 +1,6 @@
+import Card from './components/Card.jsx';
 import Cards from './components/Cards.jsx';
+import SearchBar from './components/SearchBar.jsx';
 import axios from 'axios';
 import Nav from "./components/Nav.jsx";
 import React, { useState } from "react";
@@ -10,12 +12,10 @@ function App() {
    const [characters, setCharacters] = useState([]);
 
    function onSearch(id) {
-      const characterId = characters.filter = (
-         char => char.id === Number(id)
-      )
-      if(characterId.length){
-         return alert(`¡El personaje con is ${id} ya existe!`)
-      }
+      const characterId = characters.filter(char => char.id === Number(id))
+    if(characterId.length) {
+      return alert(`El personaje con id ${id} ya existe`)
+    }
       axios(`${URL}/${id}?key=${API_KEY}`).then(
          ({ data }) => {
             if (data.name) {
@@ -25,20 +25,20 @@ function App() {
             }
          }
       );
-   }
-
+ 
+      }
    const onClose = id => {
       setCharacters(characters.filter(char => char.id !== Number(id)))
    }
 
    return (
       <div className='App'>
+
          <Nav onSearch={onSearch} />
          <Cards characters={characters} onClose ={onClose} />
 
       </div>
    );
-}
-
+   }
 export default App;
-
+   
