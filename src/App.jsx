@@ -1,9 +1,12 @@
-import Card from './components/Card.jsx';
-import Cards from './components/Cards.jsx';
-import SearchBar from './components/SearchBar.jsx';
+import Error from './components/error/Error.jsx';
+import Cards from './components/cards/Cards.jsx';
+import Detail from './components/Detail/Detail.jsx';
 import axios from 'axios';
-import Nav from "./components/Nav.jsx";
+import About from './components/about/About.jsx'
+import Nav from "./components/nav/Nav.jsx";
 import React, { useState } from "react";
+import { Routes, Route } from 'react-router-dom';
+
 
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
@@ -33,12 +36,18 @@ function App() {
 
    return (
       <div className='App'>
-
+         
          <Nav onSearch={onSearch} />
-         <Cards characters={characters} onClose ={onClose} />
+         
+         <Routes>
+            <Route path='/home' element={<Cards characters={characters} onClose ={onClose} />}></Route>
+            <Route path='/About' element={<About/>}></Route>
+            <Route path='/detail/:id' element={<Detail/>}></Route>
+            <Route path='*' element={<Error/>}></Route>         
+         </Routes>
 
       </div>
    );
-   }
+}
 export default App;
    
