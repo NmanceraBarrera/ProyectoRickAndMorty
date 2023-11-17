@@ -13,6 +13,9 @@ export default function Nav({onSearch}) {
         <Link to = {"/home"}>
         <button>Home</button>
         </Link>
+        {/* <Link to = {"/"}>
+        <button>Form</button>
+        </Link> */}
     </div>
     )
 }
