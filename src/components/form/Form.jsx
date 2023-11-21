@@ -38,37 +38,30 @@ export default function Form(props) {
 
 
 
-    return <div>
-        <form onSubmit={handleSubmit} >
+    return <div className='display'>
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" />
-            <br />
-            <br />
-
-            <label style={{ paddingRight: 10 }}>Email</label>
-
+        <form onSubmit={handleSubmit} >
+            <div className = "container">
+            <label >Email</label>
             <input
                 type='email'
                 name="email"
                 value={userData.email}
                 onChange={handleChange}>
-
             </input>
-
-            <p style={{ color: "coral" }}>{errors.email ? errors.email : null}</p>
-
-
-            <label style={{ paddingLeft: 10, paddingRight: 10 }}>password</label>
+            <p>{errors.email ? errors.email : null}</p>
+            <label >Password</label>
             <input
                 type='password'
                 name="password"
                 value={userData.password}
                 onChange={handleChange}>
-
             </input>
-            <p style={{ color: "coral" }}>{errors.password ? errors.password : null}</p>
-            <br />
-            <br />
-            <button type='submit' onSubmit={handleSubmit}>Submit</button>
+            <p>{errors.password ? errors.password : null}</p>
+            <button type='submit' 
+            onSubmit={handleSubmit}
+            disabled = {errors.email|| errors.password} >Submit</button>
+            </div>
         </form>
     </div>
         ;

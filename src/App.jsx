@@ -7,6 +7,7 @@ import Nav from "./components/nav/Nav.jsx";
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Form from './components/form/Form.jsx';
+import "./app.css";
 
 
 
@@ -28,8 +29,11 @@ function App() {
          navigate ("/home");
       }
       else{
-         setAccess(false)
+         alert ("Credenciales incorrectas!")
       }
+   }
+   function logout(){
+      setAccess(false)
    }
 
    useEffect(() => {
@@ -60,10 +64,10 @@ function App() {
 
 
    return (
-      <div className='App'style={{textAlign: 'center'}}>
+      <div className='App'>
          
          
-         {location.pathname === '/'? null : <Nav onSearch={onSearch} /> }
+         {location.pathname === '/'? null : <Nav onSearch={onSearch} logout={logout}/> }
 
 
          <Routes>

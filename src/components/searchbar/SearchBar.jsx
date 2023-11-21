@@ -20,7 +20,12 @@ export default function SearchBar(props) {
       <div style={{margin:10,opacity:1}}>
           <input type='text' placeholder= 'Id...' style={{textAlign:'left',paddingRight:80}} onChange={handleChange} value={id} />
           <button onClick={handleClick} style={{backgroundColor: 'yellow', color:'black', marginLeft:30,marginRight:80}}>Agregar</button>
-          
+          <button
+        className="random-button"
+        onClick={() => props.onSearch(Math.ceil(Math.random() * 826))}
+      >
+        Add random
+      </button>
       </div>
   );
 }

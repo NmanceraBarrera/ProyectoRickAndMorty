@@ -1,21 +1,24 @@
 import React from "react";
 import SearchBar from "../searchbar/SearchBar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
-export default function Nav({onSearch}) {
+export default function Nav(props) {
+
     return( 
-    <div style={{backgroundColor:'gray',paddingBlock:10,opacity:0.6}}>
-        <SearchBar onSearch={onSearch}/> 
-        <Link to = {"/about"}>
-        <button>About</button>
-        </Link>
-        <Link to = {"/home"}>
-        <button>Home</button>
-        </Link>
-        {/* <Link to = {"/"}>
-        <button>Form</button>
-        </Link> */}
+    <div className="Barra">
+        <NavLink to = "/home">
+            <button>Home</button>
+        </NavLink>
+
+        <NavLink to = "/about">
+            <button>About</button>
+        </NavLink>
+        
+        <button onClick={props.logout}>Logout</button>
+
+        <SearchBar onSearch={props.onSearch}/>        
+        
     </div>
     )
 }
