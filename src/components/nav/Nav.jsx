@@ -14,6 +14,10 @@ export default function Nav(props) {
         <NavLink to = "/about">
             <button>About</button>
         </NavLink>
+
+        <NavLink to = "/favorites">
+            <button>Favorites</button>
+        </NavLink>
         
         <button onClick={props.logout}>Logout</button>
 

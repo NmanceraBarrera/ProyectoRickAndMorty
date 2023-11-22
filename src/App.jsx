@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Form from './components/form/Form.jsx';
 import "./app.css";
+import Favorites from './components/favorites/Favorites.jsx';
 
 
 
@@ -71,8 +72,13 @@ function App() {
 
 
          <Routes>
+            <Route path='/favorites' element={<Favorites/>} onClose={onclose}/>
             <Route path='/' element={<Form login={login}/>}> </Route>         
-            <Route path='/home' element={<Cards characters={characters} onClose ={onClose} />}></Route>
+            <Route path='/home'
+             element={<Cards characters={characters} 
+             onClose ={onClose} 
+
+             />}></Route>
             <Route path='/About' element={<About/>}></Route>
             <Route path='/detail/:id' element={<Detail/>}></Route>
             <Route path='*' element={<Error/>}></Route>         
