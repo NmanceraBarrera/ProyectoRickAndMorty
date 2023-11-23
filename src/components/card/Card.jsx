@@ -6,14 +6,9 @@ import { addFav, removeFav } from "../../redux/action";
 
 export default function Card(props) {
    const myFavorites = useSelector(state =>state.myFavorites)
-
    const dispatch = useDispatch();
+
    const [isFav,setIsFav] = useState(false);
-
-   const handleRemove =()=>{
-      dispatch(handleFavorite(false))
-   }
-
 
    const handleFavorite = () => {
       if(isFav === true){
@@ -44,7 +39,7 @@ export default function Card(props) {
          :
          (<button onClick={handleFavorite}>🤍</button>)}
 
-         <button onClick={() => {props.onClose(props.id); handleRemove();}} style={{display:"flex",backgroundColor:"red",color:"black",borderBottomColor:"black",borderStyle:"none",marginTop:0,marginLeft:285,}}>X</button>
+         <button onClick={() => {props.onClose(props.id)}} style={{display:"flex",backgroundColor:"red",color:"black",borderBottomColor:"black",borderStyle:"none",marginTop:0,marginLeft:285,}}>X</button>
 
          <img src={props.image} alt='' /> 
 

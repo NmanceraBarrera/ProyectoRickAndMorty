@@ -9,6 +9,8 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Form from './components/form/Form.jsx';
 import "./app.css";
 import Favorites from './components/favorites/Favorites.jsx';
+import { useDispatch } from 'react-redux';
+import { removeFav } from './redux/action.js';
 
 
 
@@ -19,6 +21,7 @@ function App() {
    const [characters, setCharacters] = useState([]);
    const navigate = useNavigate();
    const location = useLocation();
+   const dispatch = useDispatch();
 
    const [access,setAccess] = useState (false);
    const email = "a@a.a";
@@ -60,6 +63,7 @@ function App() {
       }
    const onClose = id => {
       setCharacters(characters.filter(char => char.id !== Number(id)))
+      dispatch(removeFav(id))
    }
 
 

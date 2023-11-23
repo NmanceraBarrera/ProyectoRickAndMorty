@@ -5,9 +5,14 @@ import Card from '../card/Card';
 export default function Cards({characters, onClose}) {
 
    return <div style={{display: 'flex',marginLeft: 30,flexWrap:'wrap'}}>
-   {characters.map(character => (
-     <Card key={character.id} {...character} onClose={onClose} />
-   ))}
+   {
+   !characters.length
+   ? <h2>Por favor agregue un personaje por su id...</h2>
+   :
+   characters.map(character => (
+      <Card onClose={onClose} key={character.id} {...character} />
+   ))
+  }
    
  </div>
 }
