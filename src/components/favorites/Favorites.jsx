@@ -40,7 +40,7 @@ export default function Favorites({ onClose }) {
                 justifyContent: "space-evenly"}}>
                 {
                     !myFavorites.length
-                    ? <h2>Agregue| un personaje a sus favoritos!</h2>
+                    ? <h2>Agregue un personaje a sus favoritos!</h2>
                     :
                     myFavorites.map(favorite => (
                         <Card onClose={onClose} key={favorite.id} {...favorite} />

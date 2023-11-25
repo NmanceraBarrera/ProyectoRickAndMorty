@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./form.css";
+import style from './form.module.css'
 import validate from '../../utilities/Validation';
 
 
@@ -38,27 +38,27 @@ export default function Form(props) {
 
 
 
-    return <div className='display'>
+    return <div className={style.display}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" />
         <form onSubmit={handleSubmit} >
-            <div className = "container">
-            <label >Email</label>
-            <input
+            <div className = {style.container}>
+            <label className={style.label} >Email</label>
+            <input className={style.input}
                 type='email'
                 name="email"
                 value={userData.email}
                 onChange={handleChange}>
             </input>
             <p>{errors.email ? errors.email : null}</p>
-            <label >Password</label>
-            <input
+            <label className={style.label} >Password</label>
+            <input className={style.input}
                 type='password'
                 name="password"
                 value={userData.password}
                 onChange={handleChange}>
             </input>
             <p>{errors.password ? errors.password : null}</p>
-            <button type='submit' 
+            <button className={style.enviar} type='submit' 
             onSubmit={handleSubmit}
             disabled = {errors.email|| errors.password} >Submit</button>
             </div>

@@ -41,7 +41,8 @@ function App() {
    }
 
    useEffect(() => {
-      !access && navigate('/');
+      // !access && navigate('/');
+      !access && navigate('/home');
    }, [access]);
 
 
@@ -77,7 +78,7 @@ function App() {
 
          <Routes>
             <Route path='/favorites' element={<Favorites/>} onClose={onclose}/>
-            <Route path='/' element={<Form login={login}/>}> </Route>         
+            <Route path='/' element={<Form login={login} style={{PageTransitionEvent}}/>}> </Route>         
             <Route path='/home'
              element={<Cards characters={characters} 
              onClose ={onClose} 

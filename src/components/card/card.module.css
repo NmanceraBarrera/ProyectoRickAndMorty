@@ -1,0 +1,51 @@
+.card {
+  background: gray;
+  width: 320px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+
+.card h4 {
+  margin: 5px auto 0;
+}
+.card h3 {
+  margin: 5px auto 0;
+}
+
+.card img {
+  border-radius: 30px;
+}
+
+/* --------------bottom heart -------------- */
+
+.heart {
+  background: none;
+  border: none;
+  font-weight: bolder;
+}
+.heart :hover {
+  background: transparent;
+}
+
+/* ---------------- -------------- */
+
+.close {
+  background: none;
+  border: none;
+  font-weight: bolder;
+}
+
+/* ---------------- -------------- */
+.containerButtons {
+  position: relative;
+  display: flex;
+  bottom: -65px;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px !important;
+  box-sizing: border-box;
+}
