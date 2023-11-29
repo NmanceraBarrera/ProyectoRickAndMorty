@@ -12,7 +12,7 @@ import Favorites from "./components/favorites/Favorites.jsx";
 import { useDispatch } from "react-redux";
 import { removeFav } from "./redux/action.js";
 
-const URL = "http://localhost:3001/rickandmorty/character";
+// const URL = "http://localhost:3001/rickandmorty/character";
 // const API_KEY = "henrystaff";
 
 function App() {
@@ -47,13 +47,15 @@ function App() {
     if (characterId.length) {
       return alert(`El personaje con id ${id} ya existe`);
     }
-    axios(`${URL}/${id}`).then(({ data }) => {
-      if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("¡No hay personajes con este ID!");
+        }
       }
-    });
+    );
   }
   const onClose = (id) => {
     setCharacters((prevCharacters) =>
