@@ -64,10 +64,14 @@ function App() {
     dispatch(removeFav(id));
   };
 
+  const deleteAll = () => {
+    setCharacters([]);
+  };
+
   return (
     <div className="App">
       {location.pathname === "/" ? null : (
-        <Nav onSearch={onSearch} logout={logout} />
+        <Nav deleteAll={deleteAll} onSearch={onSearch} logout={logout} />
       )}
 
       <Routes>

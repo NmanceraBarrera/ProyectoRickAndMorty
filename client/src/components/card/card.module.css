@@ -1,5 +1,6 @@
 .card {
-  background: gray;
+  background: transparent;
+  backdrop-filter: blur(60px);
   width: 320px;
   height: 550px;
   display: flex;
@@ -7,6 +8,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 40px;
+  border: solid black;
 }
 
 .card h4 {

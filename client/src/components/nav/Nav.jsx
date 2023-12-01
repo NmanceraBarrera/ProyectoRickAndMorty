@@ -20,7 +20,7 @@ export default function Nav(props) {
         </NavLink>
       </div>
 
-      <SearchBar onSearch={props.onSearch} />
+      <SearchBar deleteAll={props.deleteAll} onSearch={props.onSearch} />
 
       <button className={style.logout} onClick={props.logout}>
         Logout
