@@ -16,23 +16,35 @@ import { removeFav } from "./redux/action.js";
 // const API_KEY = "henrystaff";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const [access, setAccess] = useState(false);
-  const email = "a@a.a";
-  const password = "123456";
+  const [characters, setCharacters] = useState([]);
 
-  function login(userData) {
-    if (email === userData.email && password === userData.password) {
-      setAccess(true);
-      navigate("/home");
-    } else {
-      alert("Credenciales incorrectas!");
+  const [access, setAccess] = useState(false);
+  // const email = "a@a.a";
+  // const password = "123456";
+
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      if (access === true) {
+        setAccess(data);
+        access && navigate("/home");
+      } else {
+        alert("Credenciales Incorrectas");
+      }
+    } catch (error) {
+      throw error;
     }
-  }
+  };
+
   function logout() {
     setAccess(false);
   }
@@ -42,21 +54,25 @@ function App() {
     // !access && navigate('/home');
   }, [access]);
 
-  function onSearch(id) {
+  const onSearch = async (id) => {
     const characterId = characters.filter((char) => char.id === Number(id));
     if (characterId.length) {
       return alert(`El personaje con id ${id} ya existe`);
     }
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+        window.alert("¡No hay personajes con este ID!");
       }
-    );
-  }
+    } catch (error) {
+      throw error;
+    }
+  };
+
   const onClose = (id) => {
     setCharacters((prevCharacters) =>
       prevCharacters.filter((char) => char.id !== Number(id))

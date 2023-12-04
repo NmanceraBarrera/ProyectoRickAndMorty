@@ -19,7 +19,10 @@ export default function Form(props) {
     };
   }, []);
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    email: "Ingrese su email",
+    password: "Ingrese su password",
+  });
 
   function handleChange(event) {
     const { name, value } = event.target;

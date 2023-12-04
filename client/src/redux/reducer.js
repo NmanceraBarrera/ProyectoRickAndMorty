@@ -7,27 +7,23 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   //todo En vez de usar action puedo destructurar {type, payload} y usarlos directamente.
+
   switch (action.type) {
     case ADD_FAV:
       return {
         ...state,
-        allCharacters: [...state.allCharacters, action.payload],
-        myFavorites: [...state.allCharacters, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
-    case REMOVE_FAV:
+
+    case REMOVE_FAV: {
       return {
         ...state,
-        allCharacters: [
-          ...state.allCharacters.filter(
-            (char) => char.id !== Number(action.payload)
-          ),
-        ],
-        myFavorites: [
-          ...state.allCharacters.filter(
-            (char) => char.id !== Number(action.payload)
-          ),
-        ],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
+    }
+
     case FILTER:
       if (action.payload === "All") {
         return {

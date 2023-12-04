@@ -1,33 +1,44 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/action";
 import style from "./card.module.css";
 
 export default function Card(props) {
-  const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
-
   const [isFav, setIsFav] = useState(false);
 
   const handleFavorite = () => {
     if (isFav === true) {
       setIsFav(false);
       dispatch(removeFav(props.id)); //! dudoso 👀
-    }
-    if (isFav === false) {
+    } else {
       setIsFav(true);
       dispatch(addFav(props)); //! dudoso 👀
     }
   };
 
+  const myFavorites = useSelector((state) => state.myFavorites);
   useEffect(() => {
-    myFavorites.forEach((fav) => {
-      if (fav.id === props.id) {
+    for (let i = 0; i < myFavorites.length; i++) {
+      if (myFavorites[i].id === props.id) {
         setIsFav(true);
       }
-    });
+    }
+    // myFavorites.forEach((fav) => {
+    //   if (fav.id === props.id) {
+    //     setIsFav(true);
+    //   }
+    // });
   }, [myFavorites]);
+
+  // useEffect(() => {
+  //   myFavorites.forEach((fav) => {
+  //     if (fav.id === props.id) {
+  //       setIsFav(true);
+  //     }
+  //   });
+  // }, [myFavorites]);
 
   return (
     <div className={style.card}>
