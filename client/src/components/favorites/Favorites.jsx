@@ -32,11 +32,11 @@ export default function Favorites({ onClose }) {
         >
           <option value="A">
             {" "}
-            <strong>Ascendente</strong>{" "}
+            <p>Ascendente</p>{" "}
           </option>
           <option value="D">
             {" "}
-            <strong>Descendente</strong>{" "}
+            <p>Descendente</p>{" "}
           </option>
         </select>
         <select
@@ -90,7 +90,7 @@ export default function Favorites({ onClose }) {
               status={myFavorite.status}
               species={myFavorite.species}
               gender={myFavorite.gender}
-              origin={myFavorite.origin}
+              // origin={myFavorite.origin.name}
               image={myFavorite.image}
               onClose={onClose}
             />
