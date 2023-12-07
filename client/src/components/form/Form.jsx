@@ -12,7 +12,7 @@ export default function Form(props) {
 
   useEffect(() => {
     document.body.style.backgroundImage = `url(
-      'https://i.pinimg.com/originals/f5/bc/d6/f5bcd6ac78e62f3fe1e826d6a29f6b67.png'
+      'https://images8.alphacoders.com/909/909638.png'
     )`;
     return () => {
       document.body.style.backgroundImage = null;

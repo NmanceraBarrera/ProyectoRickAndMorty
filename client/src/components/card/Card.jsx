@@ -3,21 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/action";
 import style from "./card.module.css";
+import Detail from "../detail/Detail";
 
 export default function Card(props) {
   const dispatch = useDispatch();
   const [isFav, setIsFav] = useState(false);
   const myFavorites = useSelector((state) => state.myFavorites);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFavorite = () => {
-    if (isFav === true) {
+    if (isFav) {
       setIsFav(false);
-      props.onClose(props);
-      dispatch(removeFav(props.id)); //! dudoso 👀
-    }
-    if (isFav === false) {
+      props.onClose(props.id);
+      dispatch(removeFav(props.id));
+    } else {
       setIsFav(true);
-      dispatch(addFav(props)); //! dudoso 👀
+      dispatch(addFav(props));
     }
   };
 
@@ -28,12 +29,6 @@ export default function Card(props) {
       }
     }
   }, [myFavorites]);
-
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
-  };
 
   const Status = () => {
     if (props.status === "Alive") {
@@ -47,24 +42,19 @@ export default function Card(props) {
     }
   };
 
-  // myFavorites.forEach((fav) => {
-  //   if (fav.id === props.id) {
-  //     setIsFav(true);
-  //   }
-  // });
+  const handleCardClick = (event) => {
+    // Verifica si el clic fue en un botón y evita girar la tarjeta
+    if (event.target.tagName.toLowerCase() === "button") {
+      return;
+    }
 
-  // useEffect(() => {
-  //   myFavorites.forEach((fav) => {
-  //     if (fav.id === props.id) {
-  //       setIsFav(true);
-  //     }
-  //   });
-  // }, [myFavorites]);
+    setIsFlipped(!isFlipped);
+  };
 
   return (
     <div
       className={`${style.card} ${isFlipped ? style.flipped : ""}`}
-      onClick={() => setIsFlipped(!isFlipped)}
+      onClick={handleCardClick}
     >
       <div className={style.cardFront}>
         <div className={style.containerButtons}>
@@ -85,25 +75,26 @@ export default function Card(props) {
             X
           </button>
         </div>
-        <img src={props.image} alt="" />
-
-        <Link to={`/detail/${props.id}`}>
-          <h3>{props.name}</h3>
-        </Link>
-
         <h4>Id: {props.id}</h4>
-
-        <h2>{Status()}</h2>
+        <div className={style.lucho}>
+          <img src={props.image} alt="" />
+        </div>
       </div>
-      {/* <div className={style.cardBack}>
-        <h4>Id: {props.id}</h4>
-        <h4>{props.species}</h4>
-
-        <h4>{props.gender}</h4>
-        {/* <h2>origin={props.origin.name}</h2> */}
-      {/* <img src={props.image} alt="" />  */}
-
-      {/* </div> */}
+      {/* <img
+        className={style.imageFotcard}
+        src="https://1000marcas.net/wp-content/uploads/2022/04/Rick-and-Morty.png"
+        alt="img fotcard"
+      /> */}
+      <div className={style.cardBack}>
+        <h3>{props.name}</h3>
+        <h4>Gender: {props.gender}</h4>
+        <h4>
+          Status:{} {Status()}
+        </h4>
+        <h4>Origin: {props.origin}</h4>
+        <h4>Species: {props.species}</h4>
+        {/* <img src={props.image} alt="" /> */}
+      </div>
     </div>
   );
 }

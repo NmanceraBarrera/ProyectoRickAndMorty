@@ -25,14 +25,18 @@ export default function SearchBar(props) {
         value={id}
       />
       <div className={style.button}>
-        <button onClick={handleClick}>Agregar</button>
+        <button className={style.agregarButton} onClick={handleClick}>
+          Agregar
+        </button>
         <button
-          className="random-button"
+          className={style.randomButton}
           onClick={() => props.onSearch(Math.ceil(Math.random() * 826))}
         >
           Add random
         </button>
-        <button onClick={props.deleteAll}>🗑</button>
+        <button className={style.deleteButton} onClick={props.deleteAll}>
+          🗑
+        </button>
       </div>
     </div>
   );

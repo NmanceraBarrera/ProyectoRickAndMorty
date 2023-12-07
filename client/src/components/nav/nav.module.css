@@ -1,5 +1,7 @@
 .Barra {
-  background: #44444b5d;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid black;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -12,7 +14,7 @@
   margin: 0px 10px 0px 10px;
   height: 32px;
   font-size: 20px;
-  border-radius: 10px;
+
   border: solid 2px;
 }
 
@@ -25,4 +27,79 @@
   font-size: 20px;
   border-radius: 10px;
   border: solid 2px;
+}
+
+.containerButton button {
+  border: none !important;
+  border-radius: 10px;
+  background: linear-gradient(
+    146deg,
+    rgba(254, 101, 253, 1) 8%,
+    rgba(191, 117, 253, 1) 40%,
+    rgba(62, 150, 253, 1) 66%,
+    rgba(5, 165, 253, 1) 81%
+  );
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  color: rgb(245, 247, 145);
+}
+
+.containerButton button:hover {
+  border: none;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 142, 161, 1) 0%,
+    rgba(214, 70, 6, 0) 25%,
+    rgba(253, 5, 5, 0) 50%,
+    rgba(226, 23, 25, 0) 75%,
+    rgba(236, 112, 233, 1) 97%
+  );
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.containerButton button:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.5);
+}
+
+.logout {
+  border: none !important;
+  border-radius: 10px;
+  background: linear-gradient(
+    146deg,
+    rgba(254, 101, 253, 1) 8%,
+    rgba(191, 117, 253, 1) 40%,
+    rgba(62, 150, 253, 1) 66%,
+    rgba(5, 165, 253, 1) 81%
+  );
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  color: rgb(245, 247, 145);
+}
+
+.logout:hover {
+  border: none;
+  background: linear-gradient(
+    0deg,
+    rgba(161, 8, 8, 1) 0%,
+    rgba(214, 70, 6, 0) 25%,
+    rgba(253, 5, 5, 0) 50%,
+    rgba(226, 23, 25, 0) 75%,
+    rgba(161, 8, 8, 1) 97%
+  );
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+.logout:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.5);
 }

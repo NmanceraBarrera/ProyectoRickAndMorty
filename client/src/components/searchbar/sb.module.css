@@ -6,11 +6,13 @@
   display: flex;
   align-items: center;
   align-content: center;
+  gap: 10px;
 }
 
 .search {
-  background: rgb(124, 116, 116);
-  border: none;
+  background: transparent;
+  backdrop-filter: blur(60px);
+  border: solid black;
   border-radius: 15px;
   padding: 0 10px 0 10px;
   margin-right: 20px;
@@ -31,12 +33,134 @@
   outline: none;
 }
 
-.button button:first-child {
+/* .agregarButton button:first-child {
   margin-right: 20px;
+} */
+.button {
+  display: flex;
+  gap: 15px;
 }
 .button button {
   height: 32px;
   font-size: 20px;
   border-radius: 10px;
   border: solid 2px;
+}
+/* 
+.randomButton:hover {
+  background-color: greenyellow;
+} */
+
+.randomButton {
+  border: none !important;
+  border-radius: 100px;
+  background: linear-gradient(
+    146deg,
+    rgba(254, 101, 253, 1) 8%,
+    rgba(191, 117, 253, 1) 40%,
+    rgba(62, 150, 253, 1) 66%,
+    rgba(5, 165, 253, 1) 81%
+  );
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  color: rgb(245, 247, 145);
+}
+
+.randomButton:hover {
+  border: none;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 142, 161, 1) 0%,
+    rgba(214, 70, 6, 0) 25%,
+    rgba(253, 5, 5, 0) 50%,
+    rgba(226, 23, 25, 0) 75%,
+    rgba(236, 112, 233, 1) 97%
+  );
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.randomButton:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.5);
+}
+
+.agregarButton {
+  border: none !important;
+  border-radius: 100px;
+  background: linear-gradient(
+    146deg,
+    rgba(254, 101, 253, 1) 8%,
+    rgba(191, 117, 253, 1) 40%,
+    rgba(62, 150, 253, 1) 66%,
+    rgba(5, 165, 253, 1) 81%
+  );
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  color: rgb(245, 247, 145);
+}
+
+.agregarButton:hover {
+  border: none;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 142, 161, 1) 0%,
+    rgba(214, 70, 6, 0) 25%,
+    rgba(253, 5, 5, 0) 50%,
+    rgba(226, 23, 25, 0) 75%,
+    rgba(236, 112, 233, 1) 97%
+  );
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.agregarButton:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.5);
+}
+
+.deleteButton {
+  border: none !important;
+  border-radius: 100px;
+  background: linear-gradient(
+    146deg,
+    rgba(254, 101, 253, 1) 8%,
+    rgba(191, 117, 253, 1) 40%,
+    rgba(62, 150, 253, 1) 66%,
+    rgba(5, 165, 253, 1) 81%
+  );
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  color: rgb(245, 247, 145);
+}
+
+.deleteButton:hover {
+  border: none;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 142, 161, 1) 0%,
+    rgba(214, 70, 6, 0) 25%,
+    rgba(253, 5, 5, 0) 50%,
+    rgba(226, 23, 25, 0) 75%,
+    rgba(236, 112, 233, 1) 97%
+  );
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.deleteButton:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.5);
 }

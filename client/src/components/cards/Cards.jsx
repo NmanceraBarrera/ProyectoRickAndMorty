@@ -6,7 +6,11 @@ export default function Cards({ characters, onClose }) {
   return (
     <div className={style.container}>
       {!characters.length ? (
-        <h2>Por favor agregue un personaje por su id...</h2>
+        <div className={style.fondo}>
+          <h2 className={style.h2Nashe}>
+            Por favor agregue un personaje por su id...
+          </h2>
+        </div>
       ) : (
         characters.map((character) => (
           <Card

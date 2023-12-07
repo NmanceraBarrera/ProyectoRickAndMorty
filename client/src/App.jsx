@@ -5,7 +5,7 @@ import "./app.css";
 import Cards from "./components/cards/Cards.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import About from "./components/about/About.jsx";
-import Detail from "./components/Detail/Detail.jsx";
+import Detail from "./components/detail/Detail.jsx";
 import Error from "./components/error/Error.jsx";
 import Form from "./components/form/Form.jsx";
 import Favorites from "./components/favorites/Favorites.jsx";
@@ -40,7 +40,7 @@ function App() {
         `http://localhost:3001/rickandmorty/character/${id}`
       );
       if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
+        setCharacters((oldChars) => [data, ...oldChars]);
       } else {
         window.alert("¡No hay personajes con este ID!");
       }

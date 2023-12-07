@@ -1,0 +1,85 @@
+.flipCard {
+  perspective: 1000px;
+  width: 300px; /* Ajusta el ancho según tus preferencias */
+  height: 450px; /* Ajusta la altura según tus preferencias */
+  margin: 20px;
+  /* transform-style: preserve-3d; */
+  /* transition: transform 0.5s; */
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* .cardBack {
+  transform: rotateY(180deg);
+} */
+
+/* .flipCard:hover .card {
+  transform: rotateY(180deg);
+} */
+
+.containerButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.heart,
+.close {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.lucho {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.lucho img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+.statusAlive,
+.statusUnknown,
+.statusDead {
+  text-align: center;
+  font-size: 18px;
+}
+
+.statusAlive {
+  color: #4caf50;
+}
+
+.statusUnknown {
+  color: #757575;
+}
+
+.statusDead {
+  color: #f44336;
+}
