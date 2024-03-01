@@ -11,9 +11,7 @@ import Form from "./components/form/Form.jsx";
 import Favorites from "./components/favorites/Favorites.jsx";
 import { useDispatch } from "react-redux";
 import { removeFav } from "./redux/action.js";
-
-// const URL = "http://localhost:3001/rickandmorty/character";
-// const API_KEY = "henrystaff";
+const URL_API = import.meta.env.VITE_URL_API;
 
 function App() {
   const dispatch = useDispatch();
@@ -36,9 +34,7 @@ function App() {
         return alert(`El personaje con id ${id} ya existe`);
       }
       navigate("/home");
-      const { data } = await axios(
-        `http://localhost:3001/rickandmorty/character/${id}`
-      );
+      const { data } = await axios(`${URL_API}/rickandmorty/character/${id}`);
       if (data.name) {
         setCharacters((oldChars) => [data, ...oldChars]);
       } else {
@@ -63,7 +59,7 @@ function App() {
   const login = async (userData) => {
     try {
       const { email, password } = userData;
-      const URL = "http://localhost:3001/rickandmorty/login/";
+      const URL = `${URL_API}/rickandmorty/login/`;
       const { data } = await axios(
         URL + `?email=${email}&password=${password}`
       );

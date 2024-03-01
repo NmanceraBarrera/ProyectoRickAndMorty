@@ -46,7 +46,7 @@ const reducer = (state = initialState, action) => {
         orderCopy.sort((a, b) => a.id - b.id);
       }
       if (action.payload === "D") {
-        orderCopy.sort((a, b) => b.id - a.id);
+        orderCopy.sort((a, b) => b.name.localeCompare(a.name));
       }
       return {
         ...state,

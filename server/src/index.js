@@ -1,6 +1,15 @@
 const server = require("./app");
-const PORT = 3001;
+let PORT = 3001;
+const { conn } = require("./DB_connection");
 
+server.listen(PORT, async () => {
+  try {
+    await conn.sync({ force: true });
+    console.log("Server raised in port: " + PORT);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
 // //*Middlewares
 
 // server.use((req, res, next) => {
@@ -17,10 +26,6 @@ const PORT = 3001;
 // server.use(express.json());
 
 // server.use("/rickandmorty", router);
-
-server.listen(PORT, () => {
-  console.log("Server raised in port: " + PORT);
-});
 
 // // // Importa http desde el módulo http.
 // const http = require("http");

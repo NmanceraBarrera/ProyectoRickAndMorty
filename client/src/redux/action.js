@@ -1,10 +1,11 @@
 //todo ///////////////////Actions-creators///////////////////////////////
 import axios from "axios";
 import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions-types";
+const URL_API = import.meta.env.VITE_URL_API;
 
 export const addFav = (character) => {
   try {
-    const endpoint = "http://localhost:3001/rickandmorty/fav";
+    const endpoint = `${URL_API}/rickandmorty/fav`;
     return async (dispatch) => {
       const { data } = await axios.post(endpoint, character);
       return dispatch({
@@ -18,7 +19,7 @@ export const addFav = (character) => {
 };
 
 export const removeFav = (id) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
+  const endpoint = `${URL_API}/rickandmorty/fav/` + id;
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(endpoint);

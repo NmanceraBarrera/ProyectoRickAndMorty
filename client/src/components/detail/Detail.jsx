@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+const URL_API = import.meta.env.VITE_URL_API;
 
-const URL = "http://localhost:3001/rickandmorty/character";
+const URL = `${URL_API}/rickandmorty/character`;
 // const API_KEY = "henrystaff";
 
 export default function Detail(props) {
@@ -10,15 +11,13 @@ export default function Detail(props) {
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert("No hay personajes con ese ID");
-        }
+    axios(`${URL_API}/rickandmorty/character/${id}`).then(({ data }) => {
+      if (data.name) {
+        setCharacter(data);
+      } else {
+        window.alert("No hay personajes con ese ID");
       }
-    );
+    });
     return setCharacter({});
   }, [id]);
 
